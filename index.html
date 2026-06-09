@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Para Vannesa 🤍</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+
+  <!-- CANVAS ESTRELLAS -->
+  <canvas id="stars"></canvas>
+
+  <!-- BOKEH PARTICLES -->
+  <div class="bokeh-container" id="bokeh"></div>
+
+  <!-- ===== PANTALLA 0: INTRO CON INICIAL ===== -->
+  <section class="screen active" id="screen-0">
+    <div class="initial-reveal">
+      <div class="letter-v" id="letterV">V</div>
+      <div class="line-expand" id="lineExpand"></div>
+    </div>
+  </section>
+
+  <!-- ===== PANTALLA 1: SORPRESA ===== -->
+  <section class="screen" id="screen-1">
+    <div class="surprise-container">
+      <p class="eyebrow">ESTÁS CORDIALMENTE INVITADA</p>
+      <h1 class="surprise-title">Una pequeña sorpresa</h1>
+      <h2 class="surprise-sub">Hecho con todo el cariño</h2>
+      <p class="surprise-date">30 · VII · 2025</p>
+    </div>
+  </section>
+
+  <!-- ===== PANTALLA 2: COUNTDOWN ===== -->
+  <section class="screen" id="screen-2">
+    <div class="countdown-wrap">
+      <p class="preparing-text">PREPARANDO ALGO ESPECIAL</p>
+      <div class="countdown-ring">
+        <svg viewBox="0 0 120 120">
+          <circle cx="60" cy="60" r="54" class="ring-bg"/>
+          <circle cx="60" cy="60" r="54" class="ring-progress" id="ringProgress"/>
+        </svg>
+        <span class="countdown-number" id="countNum">3</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PANTALLA 3: CELEBRANDO ===== -->
+  <section class="screen" id="screen-3">
+    <div class="celebrating-wrap">
+      <p class="eyebrow gold">CELEBRANDO A</p>
+      <h1 class="big-name">Vannesa</h1>
+      <div class="name-divider">
+        <span class="divider-dot">✦</span>
+        <span class="divider-line"></span>
+        <span class="divider-dot">✦</span>
+      </div>
+      <p class="sub-tagline">Todo sobre ti importa &nbsp;·&nbsp; Esto es para ti</p>
+      <button class="cta-btn" onclick="goTo(4)">COMENCEMOS</button>
+    </div>
+  </section>
+
+  <!-- ===== PANTALLA 4: VANNESA — SIGNIFICADO ===== -->
+  <section class="screen" id="screen-4">
+    <div class="chapter-wrap">
+      <p class="chapter-label">CAPÍTULO I</p>
+      <h2 class="chapter-title">Vannesa</h2>
+      <div class="photo-frame">
+        <img src="img/Foto5.jpg" alt="Vannesa" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="photo-placeholder">🤍</div>
+      </div>
+      <p class="chapter-text">
+        Tu nombre viene del griego <em>Phanessa</em> — la mariposa que surge. 
+        Y tiene sentido: eres de esas personas que aparecen sin hacer ruido 
+        y sin darse cuenta le dan color al mundo de los que las rodean. 
+        Hay algo en ti que simplemente no pasa desapercibido.
+      </p>
+      <button class="next-btn" onclick="goTo(5)">→</button>
+    </div>
+  </section>
+
+  <!-- ===== PANTALLA 5: CÓMO NOS CONOCIMOS ===== -->
+  <section class="screen" id="screen-5">
+    <div class="chapter-wrap">
+      <p class="chapter-label">CAPÍTULO II</p>
+      <h2 class="chapter-title">La coincidencia</h2>
+      <div class="photo-frame">
+        <img src="img/Foto6.jpg" alt="Free Fire" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="photo-placeholder">🎮</div>
+      </div>
+      <p class="chapter-text">
+        No fue en un lugar especial ni en un momento planeado. 
+        Fue jugando, en una partida más, cuando el azar decidió cruzarnos. 
+        Pero de ahí en adelante nada se sintió como una coincidencia. 
+        Desde el primer día te lo dije, y hoy sigue siendo verdad: 
+        eres alguien especial. De esas personas que llegan sin avisar y se quedan.
+      </p>
+      <button class="next-btn" onclick="goTo(6)">→</button>
+    </div>
+  </section>
+
+  <!-- ===== PANTALLA 6: GALERÍA ===== -->
+  <section class="screen" id="screen-6">
+    <div class="gallery-wrap">
+      <p class="eyebrow gold">TODO SOBRE TI</p>
+      <p class="gallery-hint">toca una foto o la flecha para verlas 🤍</p>
+      <div class="photo-grid">
+        <div class="grid-item" onclick="openLightbox(0)">
+          <img src="img/Foto4.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="photo-placeholder small">🤍</div>
+        </div>
+        <div class="grid-item" onclick="openLightbox(1)">
+          <img src="img/Foto1.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="photo-placeholder small">✨</div>
+        </div>
+        <div class="grid-item" onclick="openLightbox(2)">
+          <img src="img/Foto5.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="photo-placeholder small">🌙</div>
+        </div>
+        <div class="grid-item" onclick="openLightbox(3)">
+          <img src="img/Foto3.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="photo-placeholder small">🎮</div>
+        </div>
+      </div>
+      <button class="next-btn gallery-next" onclick="openLightbox(0)">→</button>
+    </div>
+  </section>
+
+  <!-- ===== PANTALLA 7: MENSAJE ===== -->
+  <section class="screen" id="screen-7">
+    <div class="message-wrap">
+      <p class="eyebrow">UN MENSAJE SOLO PARA TI</p>
+      <div class="message-layout">
+        <div class="message-photo">
+          <img src="img/Foto1.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="photo-placeholder msg-ph">🤍</div>
+        </div>
+        <p class="message-text">
+          Quería regalarte algo diferente. No es algo que pueda envolverse, pero está hecho con tiempo y mucho cariño.<br><br>
+          Aunque la distancia nos separe, cada conversación y cada recuerdo compartido hicieron que esto tuviera un significado especial.<br><br>
+          Que este nuevo año te traiga razones para sonreír, metas cumplidas y personas que te hagan sentir tan especial como eres.<br><br>
+          Gracias por ser parte de mis días. Ojitos bonitos  🎂✨
+        </p>
+      </div>
+      <button class="next-btn" onclick="goTo(8)">→</button>
+    </div>
+  </section>
+
+  <!-- ===== PANTALLA 8: FINAL ===== -->
+  <section class="screen" id="screen-8">
+    <canvas id="fireworks"></canvas>
+
+    <!-- Etapa A: Feliz Cumpleaños (aparece primero, luego se desvanece) -->
+    <div class="final-wrap stage stage-a" id="stageA">
+      <p class="eyebrow">GRACIAS POR ESTAR AQUÍ</p>
+      <h1 class="final-title">Feliz Cumpleaños</h1>
+      <p class="final-sub">mereces todas las cosas buenas de la vida</p>
+    </div>
+
+    <!-- Etapa B: corazon animado + frase + boton ver de nuevo (aparece despues) -->
+    <div class="final-wrap stage stage-b" id="stageB">
+      <p class="heart-message">Gracias por ser parte de mis días.<br>Nunca olvides lo valiosa que eres. 🤍</p>
+      <button class="cta-btn replay corner" onclick="replay()">↺ &nbsp; VER DE NUEVO</button>
+    </div>
+  </section>
+
+  <!-- ===== CARRUSEL (foto grande + mensaje, con flechas) ===== -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+    <button class="lightbox-close" onclick="closeLightbox()">×</button>
+
+    <div class="lightbox-content">
+      <span class="lb-counter" id="lbCounter">01 / 04</span>
+      <div class="lightbox-photo">
+        <img id="lightbox-img" src="" alt="Vannesa">
+      </div>
+      <p class="lightbox-msg" id="lightbox-msg"></p>
+
+      <!-- Controles: flechas juntas + puntos -->
+      <div class="lb-controls">
+        <button class="lb-nav lb-prev" id="lbPrev" onclick="lbPrev(event)">←</button>
+        <div class="lb-dots" id="lbDots"></div>
+        <button class="lb-nav lb-next" id="lbNext" onclick="lbNext(event)">→</button>
+      </div>
+    </div>
+
+    <!-- Boton continuar en la esquina -->
+    <button class="lb-continue" id="lbContinue" onclick="lbContinue(event)">CONTINUAR →</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
