@@ -130,7 +130,7 @@ const gallerySlides = [
     msg: "Tu sonrisa fue de las primeras cosas que me gustaron de ti. Tiene algo que tranquiliza, que hace sentir que todo va a estar bien. No la pierdas nunca, porque ilumina más de lo que crees."
   },
   {
-    src: "img/foto1.jpg",
+    src: "img/Foto1.jpg",
     msg: "Me gusta que seas tú, sin fingir, sin pretender ser otra. Esa forma tuya de ser real es de las cosas que más admiro, y de las más difíciles de encontrar."
   },
   {
