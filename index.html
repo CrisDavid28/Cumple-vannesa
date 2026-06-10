@@ -11,6 +11,10 @@
 </head>
 <body>
 
+  <!-- MUSICA DE FONDO -->
+  <audio id="bgMusic" src="musica.mp3" loop preload="auto"></audio>
+  <button id="musicToggle" class="music-toggle" onclick="toggleMusic()" aria-label="Música">🔊</button>
+
   <!-- CANVAS ESTRELLAS -->
   <canvas id="stars"></canvas>
 
@@ -30,8 +34,8 @@
     <div class="surprise-container">
       <p class="eyebrow">ESTÁS CORDIALMENTE INVITADA</p>
       <h1 class="surprise-title">Una pequeña sorpresa</h1>
-      <h2 class="surprise-sub">Hecho con todo el cariño</h2>
-      <p class="surprise-date">30 · VII · 2025</p>
+      <h2 class="surprise-sub">Hecha con todo el cariño</h2>
+      <p class="surprise-date">30 · 07 · 2026</p>
     </div>
   </section>
 
@@ -53,14 +57,14 @@
   <section class="screen" id="screen-3">
     <div class="celebrating-wrap">
       <p class="eyebrow gold">CELEBRANDO A</p>
-      <h1 class="big-name">Vannesa</h1>
+      <h1 class="big-name">Vannesa Lozano </h1>
       <div class="name-divider">
         <span class="divider-dot">✦</span>
         <span class="divider-line"></span>
         <span class="divider-dot">✦</span>
       </div>
       <p class="sub-tagline">Todo sobre ti importa &nbsp;·&nbsp; Esto es para ti</p>
-      <button class="cta-btn" onclick="goTo(4)">COMENCEMOS</button>
+      <button class="cta-btn" onclick="startMusic(); goTo(4)">COMENCEMOS</button>
     </div>
   </section>
 
@@ -143,7 +147,7 @@
           Quería regalarte algo diferente. No es algo que pueda envolverse, pero está hecho con tiempo y mucho cariño.<br><br>
           Aunque la distancia nos separe, cada conversación y cada recuerdo compartido hicieron que esto tuviera un significado especial.<br><br>
           Que este nuevo año te traiga razones para sonreír, metas cumplidas y personas que te hagan sentir tan especial como eres.<br><br>
-          Gracias por ser parte de mis días. Ojitos bonitos  🎂✨
+          Gracias por ser parte de mis días. Nunca olvides lo valiosa que eres. Ojitos Bonitos🎂✨
         </p>
       </div>
       <button class="next-btn" onclick="goTo(8)">→</button>
