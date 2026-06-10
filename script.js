@@ -72,7 +72,7 @@ function goTo(index) {
   screens[current].classList.add('active');
 
   if (index === 2) startCountdown();
-  if (index === 8) startFireworks();
+  if (index === 8) { startFireworks(); fadeOutMusic(8000); }
   else stopFireworks();
 }
 
@@ -370,3 +370,55 @@ function stopFireworks() {
 }
 
 window.addEventListener("resize", () => { if (fwRunning) fwResize(); });
+
+// ===== MÚSICA DE FONDO =====
+const bgMusic = document.getElementById('bgMusic');
+let musicStarted = false;
+
+function startMusic() {
+  if (musicStarted || !bgMusic) return;
+  bgMusic.volume = 0.5;
+  bgMusic.play().then(() => {
+    musicStarted = true;
+    const t = document.getElementById('musicToggle');
+    if (t) { t.classList.add('show'); t.textContent = '🔊'; }
+  }).catch(() => {/* el navegador pidio interaccion, se intentara de nuevo */});
+}
+
+function toggleMusic() {
+  if (!bgMusic) return;
+  const t = document.getElementById('musicToggle');
+  if (bgMusic.paused) {
+    bgMusic.play();
+    if (t) t.textContent = '🔊';
+  } else {
+    bgMusic.pause();
+    if (t) t.textContent = '🔇';
+  }
+}
+
+// Baja el volumen suavemente hasta apagar (fade out)
+let fadeTimer = null;
+function fadeOutMusic(duration) {
+  if (!bgMusic || bgMusic.paused) return;
+  if (fadeTimer) clearInterval(fadeTimer);
+  const startVol = bgMusic.volume;
+  const steps = 40;
+  const stepTime = (duration || 5000) / steps;
+  let i = 0;
+  fadeTimer = setInterval(() => {
+    i++;
+    const v = startVol * (1 - i / steps);
+    bgMusic.volume = Math.max(v, 0);
+    if (i >= steps) {
+      clearInterval(fadeTimer);
+      fadeTimer = null;
+      bgMusic.pause();
+      bgMusic.currentTime = 0;
+      bgMusic.volume = startVol; // restaura por si usan "Ver de nuevo"
+      musicStarted = false;      // permite que vuelva a sonar al reiniciar
+      const t = document.getElementById('musicToggle');
+      if (t) t.classList.remove('show');
+    }
+  }, stepTime);
+}
