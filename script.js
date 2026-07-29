@@ -177,6 +177,7 @@ function openLightbox(i) {
   lbIndex = i || 0;
   renderSlide();
   document.getElementById("lightbox").classList.add("open");
+  const lbClose = document.getElementById("lbClose"); if(lbClose) lbClose.style.display="flex";
 }
 
 function lbNext(event) {
@@ -200,6 +201,7 @@ function closeLightbox(event) {
   if (event && event.target.closest(".lightbox-content")) return;
   if (event && event.target.closest(".lb-continue")) return;
   document.getElementById("lightbox").classList.remove("open");
+  const lbClose = document.getElementById("lbClose"); if(lbClose) lbClose.style.display="none";
 }
 
 // Teclado
