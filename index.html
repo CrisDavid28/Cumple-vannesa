@@ -33,7 +33,7 @@
     <div class="surprise-container">
       <p class="eyebrow">ESTÁS CORDIALMENTE INVITADA</p>
       <h1 class="surprise-title">Una pequeña sorpresa</h1>
-      <h2 class="surprise-sub">Hecha con todo el cariño</h2>
+      <h2 class="surprise-sub">Hecha con Todo el cariño</h2>
       <p class="surprise-date">30 · 07 · 2026</p>
     </div>
   </section>
@@ -173,8 +173,6 @@
 
   <!-- ===== CARRUSEL (foto grande + mensaje, con flechas) ===== -->
   <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
-    <button class="lightbox-close" onclick="closeLightbox()">×</button>
-
     <div class="lightbox-content">
       <span class="lb-counter" id="lbCounter">01 / 04</span>
       <div class="lightbox-photo">
@@ -189,6 +187,9 @@
         <button class="lb-nav lb-next" id="lbNext" onclick="lbNext(event)">→</button>
       </div>
     </div>
+
+  <!-- X cerrar: fuera del lightbox para que siempre sea accesible en movil -->
+  <button class="lightbox-close" id="lbClose" onclick="closeLightbox()" style="display:none;">×</button>
 
     <!-- Boton continuar en la esquina -->
     <button class="lb-continue" id="lbContinue" onclick="lbContinue(event)">CONTINUAR →</button>
