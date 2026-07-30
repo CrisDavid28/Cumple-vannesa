@@ -158,9 +158,13 @@ function renderSlide() {
   document.getElementById("lbPrev").classList.toggle("disabled", lbIndex === 0);
   document.getElementById("lbNext").classList.toggle("disabled", lbIndex === gallerySlides.length - 1);
 
-  // Cuando llega a la ultima, el boton continuar se resalta
-  if (lbIndex === gallerySlides.length - 1) lbSeenLast = true;
-  document.getElementById("lbContinue").classList.toggle("ready", lbSeenLast);
+  // CONTINUAR: solo visible en la ultima foto
+  const isLast = lbIndex === gallerySlides.length - 1;
+  const contBtn = document.getElementById("lbContinue");
+  if (contBtn) {
+    contBtn.style.visibility = isLast ? "visible" : "hidden";
+    contBtn.classList.toggle("ready", isLast);
+  }
 
   // Puntos
   const dots = document.getElementById("lbDots");
@@ -177,6 +181,7 @@ function openLightbox(i) {
   lbIndex = i || 0;
   renderSlide();
   document.getElementById("lightbox").classList.add("open");
+  const lbClose = document.getElementById("lbClose"); if(lbClose) lbClose.style.display="flex";
 }
 
 function lbNext(event) {
@@ -200,6 +205,7 @@ function closeLightbox(event) {
   if (event && event.target.closest(".lightbox-content")) return;
   if (event && event.target.closest(".lb-continue")) return;
   document.getElementById("lightbox").classList.remove("open");
+  const lbClose = document.getElementById("lbClose"); if(lbClose) lbClose.style.display="none";
 }
 
 // Teclado
