@@ -11,16 +11,10 @@
 </head>
 <body>
 
-  <!-- MUSICA DE FONDO -->
   <audio id="bgMusic" src="musica.mp3" loop preload="auto"></audio>
-
-  <!-- CANVAS ESTRELLAS -->
   <canvas id="stars"></canvas>
-
-  <!-- BOKEH PARTICLES -->
   <div class="bokeh-container" id="bokeh"></div>
 
-  <!-- ===== PANTALLA 0: INTRO CON INICIAL ===== -->
   <section class="screen active" id="screen-0">
     <div class="initial-reveal">
       <div class="letter-v" id="letterV">V</div>
@@ -28,7 +22,6 @@
     </div>
   </section>
 
-  <!-- ===== PANTALLA 1: SORPRESA ===== -->
   <section class="screen" id="screen-1">
     <div class="surprise-container">
       <p class="eyebrow">ESTÁS CORDIALMENTE INVITADA</p>
@@ -38,7 +31,6 @@
     </div>
   </section>
 
-  <!-- ===== PANTALLA 2: COUNTDOWN ===== -->
   <section class="screen" id="screen-2">
     <div class="countdown-wrap">
       <p class="preparing-text">PREPARANDO ALGO ESPECIAL</p>
@@ -52,7 +44,6 @@
     </div>
   </section>
 
-  <!-- ===== PANTALLA 3: CELEBRANDO ===== -->
   <section class="screen" id="screen-3">
     <div class="celebrating-wrap">
       <p class="eyebrow gold">CELEBRANDO A</p>
@@ -67,7 +58,6 @@
     </div>
   </section>
 
-  <!-- ===== PANTALLA 4: VANNESA — SIGNIFICADO ===== -->
   <section class="screen" id="screen-4">
     <div class="chapter-wrap">
       <p class="chapter-label">CAPÍTULO I</p>
@@ -86,7 +76,6 @@
     </div>
   </section>
 
-  <!-- ===== PANTALLA 5: CÓMO NOS CONOCIMOS ===== -->
   <section class="screen" id="screen-5">
     <div class="chapter-wrap">
       <p class="chapter-label">CAPÍTULO II</p>
@@ -106,7 +95,6 @@
     </div>
   </section>
 
-  <!-- ===== PANTALLA 6: GALERÍA ===== -->
   <section class="screen" id="screen-6">
     <div class="gallery-wrap">
       <p class="eyebrow gold">TODO SOBRE TI</p>
@@ -133,7 +121,6 @@
     </div>
   </section>
 
-  <!-- ===== PANTALLA 7: MENSAJE ===== -->
   <section class="screen" id="screen-7">
     <div class="message-wrap">
       <p class="eyebrow">UN MENSAJE SOLO PARA TI</p>
@@ -153,45 +140,38 @@
     </div>
   </section>
 
-  <!-- ===== PANTALLA 8: FINAL ===== -->
   <section class="screen" id="screen-8">
     <canvas id="fireworks"></canvas>
-
-    <!-- Etapa A: Feliz Cumpleaños (aparece primero, luego se desvanece) -->
     <div class="final-wrap stage stage-a" id="stageA">
       <p class="eyebrow">GRACIAS POR ESTAR AQUÍ</p>
       <h1 class="final-title">Feliz Cumpleaños</h1>
       <p class="final-sub">mereces todas las cosas buenas de la vida</p>
     </div>
-
-    <!-- Etapa B: corazon animado + frase + boton ver de nuevo (aparece despues) -->
     <div class="final-wrap stage stage-b" id="stageB">
       <p class="heart-message">Gracias por ser parte de mis días.<br>Nunca olvides lo valiosa que eres. 🤍</p>
       <button class="cta-btn replay corner" onclick="replay()">↺ &nbsp; VER DE NUEVO</button>
     </div>
   </section>
 
-  <!-- ===== CARRUSEL (foto grande + mensaje, con flechas) ===== -->
-  <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
-    <button class="lightbox-close" onclick="closeLightbox()">×</button>
+  <!-- CAMBIO 1: X fuera del lightbox → siempre accesible en celular -->
+  <button class="lightbox-close" id="lbClose" onclick="closeLightbox()" style="display:none;">×</button>
 
+  <!-- CARRUSEL -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
     <div class="lightbox-content">
       <span class="lb-counter" id="lbCounter">01 / 04</span>
       <div class="lightbox-photo">
         <img id="lightbox-img" src="" alt="Vannesa">
       </div>
       <p class="lightbox-msg" id="lightbox-msg"></p>
-
-      <!-- Controles: flechas juntas + puntos -->
       <div class="lb-controls">
         <button class="lb-nav lb-prev" id="lbPrev" onclick="lbPrev(event)">←</button>
         <div class="lb-dots" id="lbDots"></div>
         <button class="lb-nav lb-next" id="lbNext" onclick="lbNext(event)">→</button>
       </div>
     </div>
-
-    <!-- Boton continuar en la esquina -->
-    <button class="lb-continue" id="lbContinue" onclick="lbContinue(event)">CONTINUAR →</button>
+    <!-- CAMBIO 2: CONTINUAR invisible hasta la última foto (JS lo maneja) -->
+    <button class="lb-continue" id="lbContinue" onclick="lbContinue(event)" style="visibility:hidden;">CONTINUAR →</button>
   </div>
 
   <script src="script.js"></script>
